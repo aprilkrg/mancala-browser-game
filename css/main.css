@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: 'Cookie', cursive;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 40vmin 50vmin 50vmin 40vmin);
+    grid-template-rows: repeat(4, 20vmin 10vmin 40vmin 40vmin);
+    grid-template-areas: 
+    "head head head go"
+    "p2 p2S p1S p1"
+    " . baskets baskets . "
+    " two baskets baskets one "
+    ;
+}
+
+board {
+    display: grid;
+    grid-area: baskets; */
+    grid-template-columns: repeat(6, 25vmin);
+    grid-template-rows: repeat(2, 25vmin);
+    grid-template-areas: 
+    "l k j i h g"
+    "a b c d e f";
+}
+
+h1 {
+    grid-area: head;
+    font-size: 12vmin;
+
+}
+
+.go {
+    grid-area: go;
+    size: 2em;
+}
+
+.p1 {
+    grid-area: p1;
+}
+
+.p1Score {
+    grid-area: p1S;
+}
+
+.p2 {
+    grid-area: p2;
+}
+
+.p2Score {
+    grid-area: p2S;
+}
+
+.one {
+    grid-area: one;
+    border: brown solid 1vmin;
+    border-radius: 25%;
+    gap: 1vmin;
+}
+
+.two {
+    grid-area: two;
+    border: brown solid 1vmin;
+    border-radius: 25%;
+    gap: 1vmin;
+}
+
+.a {
+    grid-area: a;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.b {
+    grid-area: b;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.c {
+    grid-area: c;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.d {
+    grid-area: d;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.e {
+    grid-area: e;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.f {
+    grid-area: f;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.g {
+    grid-area: g;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.h {
+    grid-area: h;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.i {
+    grid-area: i;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.j {
+    grid-area: j;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.k {
+    grid-area: k;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
+.l {
+    grid-area: l;
+    border: brown dashed 1vmin;
+    border-radius: 50%;
+    gap: 1vmin;
+}
