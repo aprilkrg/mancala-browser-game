@@ -7,13 +7,13 @@ body {
     font-family: 'Cookie', cursive;
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(4, 20vmin 50vmin 50vmin 20vmin);
-    grid-template-rows: repeat(4, 20vmin 10vmin 40vmin 40vmin);
+    grid-template-columns: 25vmin 25vmin 25vmin 25vmin;
+    grid-template-rows: 25vmin 18vmin 25vmin 25vmin;
     grid-template-areas: 
     "head head head go"
     "p2 p2S p1S p1"
-    " . baskets baskets . "
     " two baskets baskets one "
+    " . baskets baskets . "
     ;
 }
 
