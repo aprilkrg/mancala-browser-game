@@ -1,10 +1,46 @@
 // /*----- constants -----*/
     //1 board 
-const board = 
-    [[a] [b] [c] [d] [e] [f] [g] [h] [i] [j] [k] [l]]
-    console.log(board[0][1])
-;
-
+const baskets = [
+    {
+    name: 'a',
+    value: null,
+    },
+    {
+    name: 'b',
+    value: null,
+    },
+    {
+    name: 'c',
+    value: null,
+    },
+    name: 'd',
+    value: null,
+    },
+    name: 'e',
+    value: null,
+    },
+    name: 'f',
+    value: null,
+    },
+    name: 'g',
+    value: null,
+    },
+    name: 'h',
+    value: null,
+    },
+    name: 'i',
+    value: null,
+    },
+    name: 'j',
+    value: null,
+    },
+    name: 'k',
+    value: null,
+    },
+    name: 'l',
+    value: null,
+    },
+  ]
     //2 players
     //6 arrays [mySide]
     //2 arrays [paths] of the arrays [baskets] 
@@ -48,7 +84,6 @@ let turn;
     //init board with 0 elements [stones] in arrays [baskets]
 init();
 function init() {
-    board [null, null, null, null, null, null, null, null, null, null, null, null, null, null];
 } 
     //event listener on button [start new game]
     //render 4 elements [stones] in each array [basket] 
