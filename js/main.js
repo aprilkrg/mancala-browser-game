@@ -1,5 +1,4 @@
 // /*----- constants -----*/
-    //1 board 
 const baskets = [
     {
     name: 'a',
@@ -58,13 +57,8 @@ const baskets = [
     value: null,
     }
   ];
+//  console.log(baskets[1].name) ////expected output 'b'
 
-  console.log(baskets[1])
-    //2 players
-    //6 arrays [mySide]
-    //2 arrays [paths] of the arrays [baskets] 
-// 
-//use hover effect instead of highlight ? "cannot play here" //
 players = [
     {
         name: 'p1',
@@ -79,39 +73,41 @@ players = [
         mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
     }
 ];
-console.log(players[0])
+//use hover effect instead of highlight on mySide ? "cannot play here" //
+//console.log(players[0].path[2]) ////expected output 'name: 'c' '
 
 
-    //48 elements [stones]
-    
 // /*----- app's state (variables) -----*/
-    //what does the application need to "remember" throughout it's execution?
-    
-    //player turn
-// let turn;
+//what does the application need to "remember" throughout it's execution?
+init();
+playerTurn();
+stoneEls();
     //player array [mancala] length [point total]
-
-
     //array [basket] selected
     //array length [basket totals] after element [stone] is added
+    //48 elements [stones]
 
 // /*----- cached DOM references -----*/
     //2 cached arrays [mancalas] for totalling points 
 
     //1 cached array [hand] representing the array [basket] selected by the player 
+//const hand = Array.from(document)
 
 // /*----- event listeners -----*/
+// document.getElementById('go').addEventListener('click', init);
+// document.getElementById('board').addEventListener('click', playerTurn);
 
 
 // /*----- functions -----*/
     //starting the game:
     //init board with 0 elements [stones] in arrays [baskets]
-// init();
-// function init() {
-// } 
+function init() {
+    let baskets = [null, null, null, null, null, null, null, null, null, null, null, null, null, null];
+    // console.log(baskets[7].name); ////expected output 'g'
+    let playerTurn = 1;
+} 
     //event listener on button [start new game]
     //render 4 elements [stones] in each array [basket] 
-
     //player turn:
     //highlight arrays [baskets] whose length > 0
         //these are the selectable arrays [mySide]
