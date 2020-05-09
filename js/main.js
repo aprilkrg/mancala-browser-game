@@ -1,5 +1,5 @@
 // /*----- constants -----*/
-const baskets = [
+let baskets = [
     {
     name: 'a',
     value: null,
@@ -58,7 +58,6 @@ const baskets = [
     }
   ];
 //  console.log(baskets[1].name) ////expected output 'b'
-
 players = [
     {
         name: 'p1',
@@ -73,40 +72,49 @@ players = [
         mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
     }
 ];
-//use hover effect instead of highlight on mySide ? "cannot play here" //
 //console.log(players[0].path[2]) ////expected output 'name: 'c' '
 
-
 // /*----- app's state (variables) -----*/
-//what does the application need to "remember" throughout it's execution?
-init();
-playerTurn();
-stoneEls();
-    //player array [mancala] length [point total]
-    //array [basket] selected
-    //array length [basket totals] after element [stone] is added
-    //48 elements [stones]
+let playerTurn;
+//player array [mancala] length [point total]
+//array [basket] selected
+//array length [basket totals] after element [stone] is added
+//48 elements [stones]
+//let stoneEls;
 
 // /*----- cached DOM references -----*/
-    //2 cached arrays [mancalas] for totalling points 
+//2 cached arrays [mancalas] for totalling points 
 
-    //1 cached array [hand] representing the array [basket] selected by the player 
+//1 cached array [hand] representing the array [basket] selected by the player 
 //const hand = Array.from(document)
 
 // /*----- event listeners -----*/
-// document.getElementById('go').addEventListener('click', init);
-// document.getElementById('board').addEventListener('click', playerTurn);
+document.getElementById('go')
+    .addEventListener('click', init); //// [start new game]
+document.getElementById('board')
+    .addEventListener('click', playerTurn); //// [start new turn]
 
 
 // /*----- functions -----*/
-    //starting the game:
-    //init board with 0 elements [stones] in arrays [baskets]
+//starting the game:
 function init() {
-    let baskets = [null, null, null, null, null, null, null, null, null, null, null, null, null, null];
-    // console.log(baskets[7].name); ////expected output 'g'
+    baskets.forEach(function(baskets) {
+        baskets.value--;
+        baskets.value = baskets.value < 1 ? 4 : baskets.value;
+        //baskets.value = baskets.getElementsById(!"mancala").value < 1 ? 4 : baskets.value;
+        //how do i exclude class id "mancala" from this?
+    });
+   // baskets.value = baskets.getElementById('mancala').value > 0 ? null : baskets.value;
+    console.log(baskets[1].value); //expected output 4
+    console.log(baskets[6].value); //expected output null
     let playerTurn = 1;
-} 
-    //event listener on button [start new game]
+};
+init();
+
+
+// function playerTurn() {
+    
+// };
     //render 4 elements [stones] in each array [basket] 
     //player turn:
     //highlight arrays [baskets] whose length > 0
