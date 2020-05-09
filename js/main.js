@@ -13,49 +13,73 @@ const baskets = [
     name: 'c',
     value: null,
     },
+    {
     name: 'd',
     value: null,
     },
+    {
     name: 'e',
     value: null,
     },
+    {
     name: 'f',
     value: null,
     },
+    {
+    name: 'p1Points',
+    value: null,
+    },
+    {
     name: 'g',
     value: null,
     },
+    {
     name: 'h',
     value: null,
     },
+    {
     name: 'i',
     value: null,
     },
+    {
     name: 'j',
     value: null,
     },
+    {
     name: 'k',
     value: null,
     },
+    {
     name: 'l',
     value: null,
     },
-  ]
+    {
+    name: 'p2Points',
+    value: null,
+    }
+  ];
+
+  console.log(baskets[1])
     //2 players
     //6 arrays [mySide]
     //2 arrays [paths] of the arrays [baskets] 
-const players = {
-    '1': {
+// 
+//use hover effect instead of highlight ? "cannot play here" //
+players = [
+    {
+        name: 'p1',
         turn: '1',
-        path: [[a], [b], [c], [d], [e], [f], [1], [g], [h], [i], [j], [k], [l]],
-        mySide: [[a], [b], [c], [d], [e], [f]],
+        path: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6], baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
+        mySide: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
     },
-    '2': {
+    {
+        name: 'p2',
         turn: '-1',
-        path: [[g], [h], [i], [j], [k], [l], [2], [a], [b], [c], [d], [e], [f]],
-        mySide: [[g], [h], [i], [j], [k], [l]],
+        path: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12], baskets[13], baskets[14], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6] ],
+        mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
     }
-};
+];
+console.log(players[0])
 
 
     //48 elements [stones]
@@ -64,7 +88,7 @@ const players = {
     //what does the application need to "remember" throughout it's execution?
     
     //player turn
-let turn;
+// let turn;
     //player array [mancala] length [point total]
 
 
@@ -82,9 +106,9 @@ let turn;
 // /*----- functions -----*/
     //starting the game:
     //init board with 0 elements [stones] in arrays [baskets]
-init();
-function init() {
-} 
+// init();
+// function init() {
+// } 
     //event listener on button [start new game]
     //render 4 elements [stones] in each array [basket] 
 
