@@ -42,26 +42,42 @@ players = [
         mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
     },
 ];
-//console.log(players[0].path[2]) ////expected output 'name: 'c' '
+//console.log(players[0].path[2]) ////output 'name: 'c' '
+
+
+
 
 // /*----- app's state (variables) -----*/
 let winner;
 let turn;
 
+
+
+
 // /*----- cached DOM references -----*/
-const startBtnEl = document.querySelector('go');
-//console.log('btn', startBtnEl); //output null
+const startBtnEl = document.getElementById('go');
+//console.log('btn', startBtnEl); //output identifies correct btn
 const mancalas = Array.from(document.querySelectorAll('mancala'));
-//console.log(mancalas); //output is switched, need to figure out how to flip
-const basketEls = document.querySelectorAll('board');
-//console.log(basketEls); //output is a nodelist
+//console.log(mancalas); //output is switched, player2 mancala = mancalas[0]
+const basketEls = document.getElementById('board');
+//console.log(basketEls); //output is a list of divs
+
+
+
+
 
 // /*----- event listeners -----*/
-// document.querySelector('go')
-// .addEventListener('click', init); //// [start new game]
+startBtnEl.addEventListener('click', init);
+//console.log('testing', startBtnEl); ////output <button id="go">htmltext</button>
+
+basketEls.addEventListener('click', workTheClick);
+//console.log('testing baskets', basketEls); ///output basketEls.addEventListner is not a function
 
 // document.getElementById('myside')
 //     .addEventListener('click', turn); //// [start new turn]
+
+
+
 
 // /*----- functions -----*/
 function init() {
@@ -87,12 +103,18 @@ function renderBaskets() {
 
 };
 renderBaskets();
-console.log('after renderbaskets', baskets[0].value); //output 4 
-console.log('after renderbaskets', baskets[6].value); //output 4 //DESIRED OUTPUT null
+//console.log('after renderbaskets', baskets[0].value); //output 4 
+//console.log('after renderbaskets', baskets[6].value); //output 4 //DESIRED OUTPUT null
           
-function workTheClick(evt) {
-    //get the 
+function workTheClick(target) {
+console.log('div selected:', target.toElement); //output <div class="{different letters}"></div>
+    
 };
+
+
+
+
+
 
 // function turn() {
 //         for (i = 0, i < 12, i++);

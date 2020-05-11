@@ -34,6 +34,9 @@ board {
 h1 {
     grid-area: head;
     background-color: cornsilk;
+    line-height: 10vh;
+    font-size: 10vh;
+    text-align: center;
 }
 
 .go {
@@ -45,24 +48,29 @@ h1 {
 .p1 {
     grid-area: p1;
     text-align: center;
+    line-height: 6vh;
     background-color: forestgreen;
 }
 
 .p1Score {
     grid-area: p1S;
-    background-color: aliceblue;
     text-align: center;
+    line-height: 6vh;
+    background-color: aliceblue;
+
 }
 
 .p2 {
     grid-area: p2;
     text-align: center;
+    line-height: 6vh;
     background-color: darkgoldenrod;
 }
 
 .p2Score {
     grid-area: p2S;
     text-align: center;
+    line-height: 6vh;
     background-color: lightseagreen;
 }
 
