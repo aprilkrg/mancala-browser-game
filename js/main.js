@@ -108,7 +108,7 @@ renderBaskets();
           
 function workTheClick(target) {
 console.log('div selected:', target.toElement); //output <div class="{different letters}"></div>
-    
+console.log(this);
 };
 
 
