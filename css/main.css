@@ -3,87 +3,89 @@
   }
 
 body {
-    justify-content: center;
     font-family: 'Cookie', cursive;
-    text-align: center;
     display: grid;
-    grid-template-columns: 25vmin 45vmin 45vmin 25vmin;
-    grid-template-rows: 25vmin 18vmin 25vmin 25vmin;
-    grid-template-areas: 
-    "head head head go"
-    "p2 p2S p1S p1"
-    " two baskets baskets one "
-    " . baskets baskets . "
-    ;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: 2fr 1fr 2fr 2fr;
+    grid-template-areas:
+        "head head head head"
+        "p2 p2S p1S p1"
+        "two baskets baskets one"
+        "two baskets baskets one";
+    background-color: aquamarine;
 }
 
 board {
     display: grid;
-    grid-area: baskets; */
-    grid-template-columns: repeat(6, 25vmin);
-    grid-template-rows: repeat(2, 25vmin);
+    grid-area: baskets;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-areas: 
     "l k j i h g"
     "a b c d e f";
+    background-color: yellow;
+    text-align: center;
+    justify-content: center;
+    font-size: 19px; /* 90px; */
+
     
 }
 
 h1 {
     grid-area: head;
-    font-size: 12vmin;
-}
-
-h2 {
-    font-size: 6vmin;
-}
-
-h3 {
-    font-size: 5vmin;
+    background-color: cornsilk;
 }
 
 .go {
     grid-area: go;
+    background-color: darkmagenta;
+
 }
 
 .p1 {
     grid-area: p1;
+    text-align: center;
+    background-color: forestgreen;
 }
 
 .p1Score {
     grid-area: p1S;
+    background-color: aliceblue;
+    text-align: center;
 }
 
 .p2 {
     grid-area: p2;
+    text-align: center;
+    background-color: darkgoldenrod;
 }
 
 .p2Score {
     grid-area: p2S;
+    text-align: center;
+    background-color: lightseagreen;
 }
 
 mancala {
-    display: flex;
+    background-color: darkturquoise;
+    grid-row: span 2;
+
 }
 .one {
     grid-area: one;
     grid-row: span 2;
     border: rgba(26, 21, 15, 1), solid, 1px;
-    border-radius: 40%;
-    gap: 1vmin;
-    height: 50vmin;
-    width: 30vmin;
+    border-radius: 51%; 
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
-
+    height:100%;
 }
 
 .two {
     grid-area: two;
     border: rgba(26, 21, 15, 1), solid, 1px;
-    border-radius: 40%;
-    gap: 1vmin;
-    height: 50vmin;
-    width: 30vmin;
+    border-radius: 51%;
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    height: 100%;
 
 }
 
@@ -91,83 +93,129 @@ mancala {
     grid-area: a;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .b {
     grid-area: b;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .c {
     grid-area: c;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .d {
     grid-area: d;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .e {
     grid-area: e;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .f {
     grid-area: f;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .g {
     grid-area: g;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .h {
     grid-area: h;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .i {
     grid-area: i;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .j {
     grid-area: j;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .k {
     grid-area: k;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
 }
 .l {
     grid-area: l;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-    gap: 1vmin;
+/*     gap: 1vmin; */
     background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+}
+
+@media only screen and (min-width: 320px) and (max-width: 800px) {
+
+body {
+    background-color: darkred;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+        "head head"
+        "p2 p2S"
+        "two two"
+        "baskets baskets"
+        "baskets baskets"
+        "one one"
+        "p1S p1"
+        "go go";
+        font-size: 14px;
+}
+board {
+    background-color: crimson;
+    display: 
+}
+
+
+.one {
+    grid-area: one;
+    grid-column: span 2;
+    border: rgba(26, 21, 15, 1), solid, 1px;
+    border-radius: 51%; 
+    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    width:100%;
+
+}
+
+.two {
+    grid-area: two;
+    grid-column: span 2;
+    border: rgba(26, 21, 15, 1), solid, 1px;
+    border-radius: 51%;
+    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    width: 100%;
+
+}
+
 }
