@@ -35,12 +35,12 @@ players = [
     {   name: 'p1',
         turn: '1',
         path: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6], baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
-        mySide: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
+        //mySide: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
     },
     {   name: 'p2',
         turn: '-1',
-        path: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12], baskets[13], baskets[14], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6] ],
-        mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
+        path: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12], baskets[13], baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
+       // mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
     },
 ];
 //console.log(players[0].path[2]) ////output 'name: 'c' '
@@ -51,9 +51,6 @@ players = [
 // /*----- app's state (variables) -----*/
 let winner;
 let turn;
-
-
-
 
 // /*----- cached DOM references -----*/
 const startBtnEl = document.getElementById('go');
@@ -116,62 +113,55 @@ function handleBasket(evt) {
     let clickedBasket = baskets.find(function(basket) {
         return evt.target.className === basket.name;
     });
+    let basketIdx = Array.from(evt.target.parentNode.children).indexOf(evt.target);
     if (clickedBasket.name === 'p1Points' || clickedBasket.name === 'p2Points') return;
     if (clickedBasket.value < 1) return;
-    console.log(clickedBasket); //output selected div name and value
-    spreadStones(clickedBasket);
-    //loop stones
-    //write as a seperate function 
-    //call here
-
+//console.log(clickedBasket); //output selected div name and value
+    spreadStones(clickedBasket, basketIdx);
     turn *= -1;
     winner = getWinner();
     render();
 };
 
-function spreadStones(startBasket) {
+function spreadStones(startBasket, basketIdx) {
     let numStones = startBasket.value;
     startBasket.value = 0;
-    //while loop 
+    let index = basketIdx;
+    const playerPath = turn === 1 ? players[0].path : players[1].path;
+   while (numStones > 0) {
+        numStones--; //drop increment of num stones by 1
+        playerPath[index].value++;
+        index++;
+console.log('in while loop stones',numStones); //output decreases by 1 each time!
+console.log('in while loop index',index); //output increases by 1 each time!
+    };
+console.log('out while loop stones',numStones);
 };
 
 function getWinner() {
 
 };
 
-    //parseInt or Number for converting html to current value
-//for loop let i = selected index + 1
-// as long as i is < value of selected basket
-//i++
-//  
 
 
 
 
-// function turn() {
-    //         for (i = 0, i < 12, i++);
-    
-    //     };
-    
-    // function getWinner() {
+    //render 4 elements [stones] in each array [basket] 
+    //player turn:
+    //highlight arrays [baskets] whose length > 0
+    //these are the selectable arrays [mySide]
+    //select array [basket]
+    //event listener for click 
+    //remove elements [stones] from array [basket]  
+    //cache elements [stones] in dynamic variable [hand] 
+    //add 1 element [stone] to each array [basket] starting with the next closest array [basket] 
+    //follow the players path until the cached array [hand] < 1
+    ////if player1's last element [stone] populates a previously empty array [basket](only on mySide!)
+    ////if there are elements [stones] in the array [basket] visually accross the board [player2 mySide]
+        ////move those elements to player1 cached array [mancala]  
+        //change turns
+        //repeat for player 2 turn
         
-        // };
-        //render 4 elements [stones] in each array [basket] 
-        //player turn:
-        //highlight arrays [baskets] whose length > 0
-        //these are the selectable arrays [mySide]
-        //select array [basket]
-        //event listener for click 
-        //remove elements [stones] from array [basket]  
-        //cache elements [stones] in dynamic variable [hand] 
-        //add 1 element [stone] to each array [basket] starting with the next closest array [basket] 
-        //follow the players path until the cached array [hand] < 1
-        ////if player1's last element [stone] populates a previously empty array [basket](only on mySide!)
-        ////if there are elements [stones] in the array [basket] visually accross the board [player2 mySide]
-            ////move those elements to player1 cached array [mancala]  
-            //change turns
-            //repeat for player 2 turn
-            
     //ending the game:
     //when either players sum of the arrays [mySide] is < 1
     //the game is over
@@ -181,6 +171,16 @@ function getWinner() {
     //player1 wins
     //else player2 wins
     
+
+
+
+
+
+
+
+
+
+
     //------------------pseudocode that's been moved around----------//
     //2 cached arrays [mancalas] for totalling points 
     // const movingBasket = Array.from(document.getElementById('board'));
