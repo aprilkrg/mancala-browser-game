@@ -1,35 +1,36 @@
 // /*----- constants -----*/
 let baskets = [
     {name: 'a',
-    value: null,},
+    value: 0,},
     { name: 'b',
-    value: null,},
+    value: 0,},
     { name: 'c',
-    value: null,},
+    value: 0,},
     { name: 'd',
-    value: null,},
+    value: 0,},
     { name: 'e',
-    value: null,},
+    value: 0,},
     { name: 'f',
-    value: null,},
+    value: 0,},
     { name: 'p1Points',
-    value: null,},
+    value: 0,},
     { name: 'g',
-    value: null,},
+    value: 0,},
     { name: 'h',
-    value: null,},
+    value: 0,},
     { name: 'i',
-    value: null,},
+    value: 0,},
     { name: 'j',
-    value: null,},
+    value: 0,},
     { name: 'k',
-    value: null,},
+    value: 0,},
     { name: 'l',
-    value: null,},
+    value: 0,},
     { name: 'p2Points',
-    value: null, },
+    value: 0, },
   ];
-//  console.log(baskets[1].name) ////expected output 'b'
+//  console.log(baskets[1].name) ////output 'b'
+
 players = [
     {   name: 'p1',
         turn: '1',
@@ -60,8 +61,9 @@ const startBtnEl = document.getElementById('go');
 const mancalas = Array.from(document.querySelectorAll('mancala'));
 //console.log(mancalas); //output is switched, player2 mancala = mancalas[0]
 const basketEls = document.getElementById('board');
-//console.log(basketEls); //output is a list of divs
-
+//console.log(basketEls.hasAttribute('value')); //output is false
+//const hand = Array.from(document.getElementById('board'));
+//console.log(hand); //output empty array []
 
 
 
@@ -70,7 +72,7 @@ const basketEls = document.getElementById('board');
 startBtnEl.addEventListener('click', init);
 //console.log('testing', startBtnEl); ////output <button id="go">htmltext</button>
 
-basketEls.addEventListener('click', workTheClick);
+basketEls.addEventListener('click', handleBasket);
 //console.log('testing baskets', basketEls); ///output basketEls.addEventListner is not a function
 
 // document.getElementById('myside')
@@ -81,65 +83,95 @@ basketEls.addEventListener('click', workTheClick);
 
 // /*----- functions -----*/
 function init() {
-    baskets.value = 0;
-   let turn = 1;
+    turn = 1;
+    baskets.forEach(function(basket) {
+        basket.value = 4;
+    });
+    baskets[13].value = 0;
+    baskets[6].value = 0;
+    render();
 };
 init();
-// console.log('before render', baskets[0].value); //outcome null
+//console.log('before render', baskets[0].value); //outcome null
 // console.log('before render', baskets[6].value); //outcome null
 
 function render() {
-    winner = getWinner();
+   // winner = getWinner(); //move to click handler
     renderBaskets();
 };
-// console.log('after render', baskets[0].value); //output null
+//console.log('after render', baskets[0].value); //output null
 // console.log('after render', baskets[6].value); //output null
 
 function renderBaskets() {
-    baskets.forEach(function(baskets) {
-        baskets.value--;
-        baskets.value = baskets.value < 1 ? 4 : baskets.value;
-    }) 
+    baskets.forEach(function(basket) {
+        let div = document.querySelector(`.${basket.name}`);
+        div.innerText = basket.value;
+    });
+};
+//renderBaskets();
+//console.log('B after renderbaskets', baskets[0].value); //output 4 
+//console.log('M after renderbaskets', baskets[13].value); //output null
+
+function handleBasket(evt) {
+    let clickedBasket = baskets.find(function(basket) {
+        return evt.target.className === basket.name;
+    });
+    if (clickedBasket.name === 'p1Points' || clickedBasket.name === 'p2Points') return;
+    if (clickedBasket.value < 1) return;
+    console.log(clickedBasket); //output selected div name and value
+    spreadStones(clickedBasket);
+    //loop stones
+    //write as a seperate function 
+    //call here
+
+    turn *= -1;
+    winner = getWinner();
+    render();
+};
+
+function spreadStones(startBasket) {
+    let numStones = startBasket.value;
+    startBasket.value = 0;
+    //while loop 
+};
+
+function getWinner() {
 
 };
-renderBaskets();
-//console.log('after renderbaskets', baskets[0].value); //output 4 
-//console.log('after renderbaskets', baskets[6].value); //output 4 //DESIRED OUTPUT null
-          
-function workTheClick(target) {
-console.log('div selected:', target.toElement); //output <div class="{different letters}"></div>
-console.log(this);
-};
 
-
+    //parseInt or Number for converting html to current value
+//for loop let i = selected index + 1
+// as long as i is < value of selected basket
+//i++
+//  
 
 
 
 
 // function turn() {
-//         for (i = 0, i < 12, i++);
+    //         for (i = 0, i < 12, i++);
     
-//     };
-
-// function getWinner() {
-
-// };
-    //render 4 elements [stones] in each array [basket] 
-    //player turn:
-    //highlight arrays [baskets] whose length > 0
+    //     };
+    
+    // function getWinner() {
+        
+        // };
+        //render 4 elements [stones] in each array [basket] 
+        //player turn:
+        //highlight arrays [baskets] whose length > 0
         //these are the selectable arrays [mySide]
-    //select array [basket]
+        //select array [basket]
         //event listener for click 
-    //remove elements [stones] from array [basket]  
-    //cache elements [stones] in dynamic variable [hand] 
-    //add 1 element [stone] to each array [basket] starting with the next closest array [basket] 
+        //remove elements [stones] from array [basket]  
+        //cache elements [stones] in dynamic variable [hand] 
+        //add 1 element [stone] to each array [basket] starting with the next closest array [basket] 
         //follow the players path until the cached array [hand] < 1
-            ////if player1's last element [stone] populates a previously empty array [basket](only on mySide!)
-            ////if there are elements [stones] in the array [basket] visually accross the board [player2 mySide]
+        ////if player1's last element [stone] populates a previously empty array [basket](only on mySide!)
+        ////if there are elements [stones] in the array [basket] visually accross the board [player2 mySide]
             ////move those elements to player1 cached array [mancala]  
-    //change turns
-    //repeat for player 2 turn
-
+            //change turns
+            //repeat for player 2 turn
+            
     //ending the game:
     //when either players sum of the arrays [mySide] is < 1
     //the game is over
@@ -148,35 +180,35 @@ console.log(this);
     //if player1 total > player2 total
     //player1 wins
     //else player2 wins
-
-//------------------pseudocode that's been moved around----------//
+    
+    //------------------pseudocode that's been moved around----------//
     //2 cached arrays [mancalas] for totalling points 
-// const movingBasket = Array.from(document.getElementById('board'));
-//1 cached array [hand] representing the array [basket] selected by the player 
-// things access multiple times : mancalas, baskets, hand(function?), each players array for their turn
-
-//player array [mancala] length [point total]
-//array [basket] selected
-//array length [basket totals] after element [stone] is added
-//48 elements [stones]
-//let stoneEls;
-
-
-
-
-//////-------------taken from function render baskets ---------------//
-       // basketEls.forEach(function(basketEl)) {
-    //     basketEls[value].innerHTML(display);
-    // }
+    // const movingBasket = Array.from(document.getElementById('board'));
+    //1 cached array [hand] representing the array [basket] selected by the player 
+    // things access multiple times : mancalas, baskets, hand(function?), each players array for their turn
+    
+    //player array [mancala] length [point total]
+    //array [basket] selected
+    //array length [basket totals] after element [stone] is added
+    //48 elements [stones]
+    //let stoneEls;
+    
+    
+    
+    
+    //////-------------taken from function render baskets ---------------//
+    // basketEls.forEach(function(basketEl)) {
+        //     basketEls[value].innerHTML(display);
+        // }
    
-    // for (let basket in baskets) {
-        //     mancalas[basket].value = null;
+        // for (let basket in baskets) {
+            //     mancalas[basket].value = null;
         // }  
         
         
         //how do i exclude class id "mancala" from this?
         //baskets.value = baskets.getElementsById(!"mancala").value < 1 ? 4 : baskets.value;
-    // baskets.querySelectorAll('mancala').value(value, null);
+        // baskets.querySelectorAll('mancala').value(value, null);
     // baskets.querySelectorAll('mancala').value = 0;
     // baskets.forEach(function(baskets) {
         //     if (baskets.getElementsById('mancala')) {
@@ -186,3 +218,17 @@ console.log(this);
                 //         baskets.value = baskets.value > 0 ? 4 : baskets.value;
                 //     } return;
                 // });
+                                        //     baskets.forEach(function(basket) {
+                                        //         if (basket.name === evt.target.classList.value) {
+                                        // //console.log('basket in if',basket); //output {name: {divname}, value: 4}
+                                        //         const hand = basket.value;
+                                        //             basket.value = 0;
+                                        // console.log('hand value', hand); //output 4 
+                                        //             //console.log('baskets value', baskets.value); //output 0, when a is clicked first
+                                        //             //console.log('basket current value', (evt.target.value)); //output undefined
+                                        //             //console.log('baskets all', baskets[evt.target].value);
+                                        //             //console.log(evt.target); // output <div class="{div name}></div>"
+                                        // console.log('inner text', evt.target.innerText); //output 0 //DESIRED 4
+                                        //             evt.target.innerText = baskets.value;
+                                        //         }
+                                        //     });
