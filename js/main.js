@@ -28,76 +28,57 @@ let baskets = [
     value: 0,},
     { name: 'p2Points',
     value: 0, },
-  ];
-//  console.log(baskets[1].name) ////output 'b'
+];
 
-players = [
-    {   name: 'p1',
-        turn: '1',
-        path: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6], baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
-        //mySide: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
+let players = [
+    { name: 'p1',
+    turn: '1',
+   // path: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6], baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
+    mySide: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
     },
-    {   name: 'p2',
-        turn: '-1',
-        path: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12], baskets[13], baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
-       // mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
+    { name: 'p2',
+    turn: '-1',
+   // path: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12], baskets[13], baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
+    mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
     },
 ];
-//console.log(players[0].path[2]) ////output 'name: 'c' '
-
-
 
 
 // /*----- app's state (variables) -----*/
 let winner;
 let turn;
 
+
 // /*----- cached DOM references -----*/
 const startBtnEl = document.getElementById('go');
-//console.log('btn', startBtnEl); //output identifies correct btn
-const mancalas = Array.from(document.querySelectorAll('mancala'));
-//console.log(mancalas); //output is switched, player2 mancala = mancalas[0]
 const basketEls = document.getElementById('board');
-//console.log(basketEls.hasAttribute('value')); //output is false
-//const hand = Array.from(document.getElementById('board'));
-//console.log(hand); //output empty array []
-
-
-
+const msgEl = document.getElementById('msg');
 
 // /*----- event listeners -----*/
 startBtnEl.addEventListener('click', init);
-//console.log('testing', startBtnEl); ////output <button id="go">htmltext</button>
 
 basketEls.addEventListener('click', handleBasket);
-//console.log('testing baskets', basketEls); ///output basketEls.addEventListner is not a function
 
 // document.getElementById('myside')
 //     .addEventListener('click', turn); //// [start new turn]
-
-
 
 
 // /*----- functions -----*/
 function init() {
     turn = 1;
     baskets.forEach(function(basket) {
-        basket.value = 4;
+        basket.value = 4; ///// -------------- set basket value here
     });
     baskets[13].value = 0;
     baskets[6].value = 0;
     render();
 };
 init();
-//console.log('before render', baskets[0].value); //outcome null
-// console.log('before render', baskets[6].value); //outcome null
 
 function render() {
-   // winner = getWinner(); //move to click handler
     renderBaskets();
+    msgEl.innerText = turn === 1 ? 'Player 1 Turn' : 'PLayer 2 Turn'; 
 };
-//console.log('after render', baskets[0].value); //output null
-// console.log('after render', baskets[6].value); //output null
 
 function renderBaskets() {
     baskets.forEach(function(basket) {
@@ -105,9 +86,6 @@ function renderBaskets() {
         div.innerText = basket.value;
     });
 };
-//renderBaskets();
-//console.log('B after renderbaskets', baskets[0].value); //output 4 
-//console.log('M after renderbaskets', baskets[13].value); //output null
 
 function handleBasket(evt) {
     let clickedBasket = baskets.find(function(basket) {
@@ -116,31 +94,66 @@ function handleBasket(evt) {
     let basketIdx = Array.from(evt.target.parentNode.children).indexOf(evt.target);
     if (clickedBasket.name === 'p1Points' || clickedBasket.name === 'p2Points') return;
     if (clickedBasket.value < 1) return;
-//console.log(clickedBasket); //output selected div name and value
     spreadStones(clickedBasket, basketIdx);
     turn *= -1;
-    winner = getWinner();
+    winner = getWinner(); //-------------------- turn on winner
     render();
 };
 
 function spreadStones(startBasket, basketIdx) {
     let numStones = startBasket.value;
+//console.log('sb value',startBasket.value); //output {div name, div value}
+//console.log('sb index', baskets.indexOf(startBasket)); //output undefined ------------------------ is this the issue?
+    // let index = basketIdx + 1;
+//console.log('index', basketIdx); //output div index as expected, a=0 b=1
+    const stoneRoad = [baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6], baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12], baskets[13]];
+//console.log(stoneRoad); //output array of objects as expected
+    let index = baskets.indexOf(startBasket) + 1; 
+    while (numStones > 0) {
+        numStones--; 
+//console.log('index', index, baskets[index]);
+        baskets[index].value++;
+        if (index >= baskets.length - 1) {
+            index = 0;
+        } else {
+            index++;
+        };
+    }; //if statement > ternery ????
     startBasket.value = 0;
-    let index = basketIdx;
-    const playerPath = turn === 1 ? players[0].path : players[1].path;
-   while (numStones > 0) {
-        numStones--; //drop increment of num stones by 1
-        playerPath[index].value++;
-        index++;
-console.log('in while loop stones',numStones); //output decreases by 1 each time!
-console.log('in while loop index',index); //output increases by 1 each time!
-    };
-console.log('out while loop stones',numStones);
 };
 
 function getWinner() {
-
+//console.log('value', baskets.value); //output undefined
+//console.log('bEls',basketEls); // output <div id"board">
+console.log('side1', players[0].mySide, 'side2', players[1].mySide);
+//console.log('side',baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5]);
+    while (baskets.value > 0) return;
+    if (baskets[6].value > baskets[13].value) {
+        msgEl.innerHTML = "Player 1 Wins!";
+    };
+    if (baskets[13].value > baskets[6].value) {
+        msgEl.innerHTML = "Player 2 wins!";
+    };
+    if (baskets[6].value === baskets[13].value) {
+        'You tied! Want to play again?';
+    };
 };
+
+////------------------STILL NEED FOR MVP----------------////
+
+// FIX THE ARRAY THAT THE STONES RUN THROUGH
+        //then work on !including 6 & 13 
+
+// WINNER LOGIC & MESSAGES
+    // WHEN THE ARRAY OF BASKETS IS < 1
+    // COMPARE POINT TOTALS
+    //BIGGER POINTS WIN
+// while p1 my side > 0 || p2 my side > 0; return
+//if p1 points > p2, p1 wins!
+
+
+
+
 
 
 
