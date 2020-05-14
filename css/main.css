@@ -10,12 +10,13 @@ body {
     font-family: 'Cookie', cursive;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 1fr;
-    grid-template-rows: 2fr 1fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 2fr 2fr 1fr;
     grid-template-areas:
-        "head head head go"
-        "p2 turn . p1"
+        "head head head head"
+        "turn turn win go"
         "two baskets baskets one"
-        "two baskets baskets one";
+        "two baskets baskets one"
+        "p2 . . p1";
 
 }
 
@@ -34,26 +35,37 @@ body {
 
 h1 {
     grid-area: head;
-    line-height: 10vh;
-    font-size: 10vh;
+    font-size: 11vh;
     text-align: center;
     background-color: rgba(156, 119, 71, .7);
     color: whitesmoke;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-height: 125px;
 }
 
 h2 {
-    font-size: 30px;
-    text-align: center;
-    background-color: whitesmoke;
+    font-size: 50px;
+    background-color: rgba(245, 245, 245, .6);
+    height: 55px;
+    margin-top: 25px;
 }
 
-.turn {
-    grid-area: turn;
-    font-size: 40px;
+#win {
+    grid-area: win;
+    grid-column: span 2;
+    background-color: rgba(245, 245, 245, .6);
+    height: 55px;
+    align-items: baseline;
+    color: black;
+    margin-top: 25px;
+    font-size: 50px;
+    text-align: right;
 }
 
 .go {
     grid-area: go;
+    font-size: 50px;
 }
 
 .p1 {
@@ -87,6 +99,7 @@ h2 {
     height:100%;
     text-align: center;
     color: whitesmoke;
+    padding-top: 70px;
 }
 
 .two {
@@ -97,6 +110,7 @@ h2 {
     height: 100%;
     text-align: center;
     color: whitesmoke;
+    padding-top: 70px;
 }
 
 .a {
@@ -105,6 +119,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .b {
     grid-area: b;
@@ -112,6 +127,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .c {
     grid-area: c;
@@ -119,6 +135,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .d {
     grid-area: d;
@@ -126,6 +143,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .e {
     grid-area: e;
@@ -133,6 +151,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .f {
     grid-area: f;
@@ -140,6 +159,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .g {
     grid-area: g;
@@ -147,6 +167,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .h {
     grid-area: h;
@@ -154,6 +175,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .i {
     grid-area: i;
@@ -161,6 +183,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .j {
     grid-area: j;
@@ -168,6 +191,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .k {
     grid-area: k;
@@ -175,6 +199,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 .l {
     grid-area: l;
@@ -182,6 +207,7 @@ h2 {
     border-radius: 50%;
     background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
     color: whitesmoke;
+    padding-top: 50px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 800px) {

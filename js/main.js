@@ -31,13 +31,9 @@ let baskets = [
 ];
 let players = [
     { name: 'p1',
-    turn: '1',
-    //mySide: [ baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5] ],
-    },
+    turn: '1', },
     { name: 'p2',
-    turn: '-1',
-    //mySide: [ baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12] ],
-    },
+    turn: '-1', },
 ];
 
 // /*----- app's state (variables) -----*/
@@ -48,7 +44,7 @@ let turn;
 const startBtnEl = document.getElementById('go');
 const basketEls = document.getElementById('board');
 const msgEl = document.getElementById('msg');
-const win = document.querySelector('win');
+const win = document.getElementById('win');
 
 // /*----- event listeners -----*/
 startBtnEl.addEventListener('click', init);
@@ -68,7 +64,7 @@ init();
 
 function render() {
     renderBaskets();
-    msgEl.innerText = turn === 1 ? 'Player 1 Turn' : 'PLayer 2 Turn'; 
+    msgEl.innerText = turn === 1 ? 'Player 1 Turn' : 'Player 2 Turn'; 
 };
 
 function renderBaskets() {
@@ -86,8 +82,8 @@ function handleBasket(evt) {
     if (clickedBasket.name === 'p1Points' || clickedBasket.name === 'p2Points') return;
     if (clickedBasket.value < 1) return;
     spreadStones(clickedBasket, basketIdx);
-    baskets[6].value + baskets[13].value === 48 ? getWinner() : turn *= -1; //----------------set final basket number here
     render();
+    baskets[6].value + baskets[13].value === 48 ? getWinner() : turn *= -1; //----------------set final basket number here
 };
 
 function spreadStones(startBasket, basketIdx) {
@@ -107,23 +103,14 @@ function spreadStones(startBasket, basketIdx) {
 };
 
 function getWinner() {
+console.log(baskets[6].value, baskets[13].value);
    if(baskets[6].value > baskets[13].value) {
-       win.innerText = `Player 1 Wins!`;
+       win.innerText = 'Player 1 Wins!';
    } else if(baskets[13].value > baskets[6].value) {
-       win.innerText = `Player 2 Wins!`;
+       win.innerText = 'Player 2 Wins!';
+   } else if(baskets[6].value === baskets[13].value) {
+       win.innerText = 'You tied! Play again?'
    };
+   
+msgEl.innerText = '';
 };
-
-
-
-////------------------STILL NEED FOR MVP----------------////
-
-
-// WINNER LOGIC & MESSAGES
-    // WHEN THE ARRAY OF BASKETS IS < 1
-    // COMPARE POINT TOTALS
-    //BIGGER POINTS WIN
-
-
-
-
