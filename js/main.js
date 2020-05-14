@@ -53,6 +53,7 @@ let turn;
 const startBtnEl = document.getElementById('go');
 const basketEls = document.getElementById('board');
 const msgEl = document.getElementById('msg');
+const win = document.querySelector('win');
 
 // /*----- event listeners -----*/
 startBtnEl.addEventListener('click', init);
@@ -102,42 +103,42 @@ function handleBasket(evt) {
 
 function spreadStones(startBasket, basketIdx) {
     let numStones = startBasket.value;
-//console.log('sb value',startBasket.value); //output {div name, div value}
-//console.log('sb index', baskets.indexOf(startBasket)); //output undefined ------------------------ is this the issue?
-    // let index = basketIdx + 1;
-//console.log('index', basketIdx); //output div index as expected, a=0 b=1
-    const stoneRoad = [baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5], baskets[6], baskets[7], baskets[8], baskets[9], baskets[10], baskets[11], baskets[12], baskets[13]];
-//console.log(stoneRoad); //output array of objects as expected
     let index = baskets.indexOf(startBasket) + 1; 
     while (numStones > 0) {
         numStones--; 
-//console.log('index', index, baskets[index]);
         baskets[index].value++;
-        if (index >= baskets.length - 1) {
-            index = 0;
-        } else {
-            index++;
-        };
-    }; //if statement > ternery ????
+        index >= baskets.length - 1 ? index = 0 : index++;
+    }; 
     startBasket.value = 0;
 };
 
 function getWinner() {
-//console.log('value', baskets.value); //output undefined
-//console.log('bEls',basketEls); // output <div id"board">
+
+
+console.log('value', baskets.value); //output undefined
+console.log('bEls',basketEls); // output <div id"board">
 console.log('side1', players[0].mySide, 'side2', players[1].mySide);
-//console.log('side',baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5]);
-    while (baskets.value > 0) return;
-    if (baskets[6].value > baskets[13].value) {
-        msgEl.innerHTML = "Player 1 Wins!";
-    };
-    if (baskets[13].value > baskets[6].value) {
-        msgEl.innerHTML = "Player 2 wins!";
-    };
-    if (baskets[6].value === baskets[13].value) {
-        'You tied! Want to play again?';
-    };
+console.log('side',baskets[0], baskets[1], baskets[2], baskets[3], baskets[4], baskets[5]);
+
+while (baskets[6].value + baskets[13].value < 48) {
+    console.log(baskets[6].value + baskets[13].value); //output logs 48 when game is over
+            if (baskets[6].value > baskets[13].value) {
+                console.log(baskets[6].value + baskets[13].value)
+                //win.innerText = "Player 1 Wins!";
+                return;
+            };
+            if (baskets[13].value > baskets[6].value) {
+              //  win.innerText = "Player 2 wins!";
+                return;
+            };
+            if (baskets[6].value === baskets[13].value) {
+               // win.innerText = 'You tied! Want to play again?';
+                return;
+            };
+        };
 };
+
+
 
 ////------------------STILL NEED FOR MVP----------------////
 
@@ -150,7 +151,6 @@ console.log('side1', players[0].mySide, 'side2', players[1].mySide);
     //BIGGER POINTS WIN
 // while p1 my side > 0 || p2 my side > 0; return
 //if p1 points > p2, p1 wins!
-
 
 
 
@@ -245,3 +245,10 @@ console.log('side1', players[0].mySide, 'side2', players[1].mySide);
                                         //             evt.target.innerText = baskets.value;
                                         //         }
                                         //     });
+
+
+                                                // if (index >= baskets.length - 1) {
+        //     index = 0;
+        // } else {
+        //     index++;
+        // };
