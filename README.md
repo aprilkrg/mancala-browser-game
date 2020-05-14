@@ -22,8 +22,9 @@ The total stones in each players mancala at the end of the game is their total p
 
 ## Future Enhancements 
 
-1. responsive design to enable mobile playing
-2. alternate themes 
-3. additional rules to complicate strategy
+1. change display of number to visual representation of stones
+2. responsive design to enable mobile playing
+3. alternate themes 
+4. additional rules to complicate strategy    
 
 

@@ -3,14 +3,17 @@
   }
 
 body {
+    background-image: url('../images/norway.jpg');
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     font-family: 'Cookie', cursive;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 1fr;
     grid-template-rows: 2fr 1fr 2fr 2fr;
     grid-template-areas:
-        "head head head head"
-        "p2 p2S p1S p1"
+        "head head head go"
+        "p2 turn . p1"
         "two baskets baskets one"
         "two baskets baskets one";
 
@@ -34,14 +37,18 @@ h1 {
     line-height: 10vh;
     font-size: 10vh;
     text-align: center;
+    background-color: rgba(156, 119, 71, .7);
+    color: whitesmoke;
 }
 
 h2 {
     font-size: 30px;
     text-align: center;
+    background-color: whitesmoke;
 }
 
 .turn {
+    grid-area: turn;
     font-size: 40px;
 }
 
@@ -53,12 +60,16 @@ h2 {
     grid-area: p1;
     text-align: center;
     line-height: 6vh;
+    background-color: whitesmoke;
+    border-radius: 50%;
 }
 
 .p2 {
     grid-area: p2;
     text-align: center;
     line-height: 6vh;
+    background-color: whitesmoke;
+    border-radius: 50%;
 }
 
 .mancala {
@@ -72,103 +83,105 @@ h2 {
     grid-row: span 2;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 51%; 
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(58, 90, 99, 1), rgba(16, 41, 43, 1));
     height:100%;
     text-align: center;
+    color: whitesmoke;
 }
 
 .two {
     grid-area: two;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 51%;
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(58, 90, 99, 1), rgba(16, 41, 43, 1));
     height: 100%;
     text-align: center;
+    color: whitesmoke;
 }
 
 .a {
     grid-area: a;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .b {
     grid-area: b;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .c {
     grid-area: c;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .d {
     grid-area: d;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .e {
     grid-area: e;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .f {
     grid-area: f;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .g {
     grid-area: g;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .h {
     grid-area: h;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .i {
     grid-area: i;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .j {
     grid-area: j;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .k {
     grid-area: k;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 .l {
     grid-area: l;
     border: rgba(26, 21, 15, 1), solid, 1px;
     border-radius: 50%;
-/*     gap: 1vmin; */
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
+    background-image: radial-gradient(rgba(144, 98, 72, .9), rgba(59, 48, 34,1));
+    color: whitesmoke;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 800px) {
