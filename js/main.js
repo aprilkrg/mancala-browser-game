@@ -31,9 +31,11 @@ let baskets = [
 ];
 let players = [
     { name: 'p1',
-    turn: '1', },
+    turn: '1', 
+},
     { name: 'p2',
-    turn: '-1', },
+    turn: '-1', 
+},
 ];
 
 // /*----- app's state (variables) -----*/
@@ -103,7 +105,6 @@ function spreadStones(startBasket, basketIdx) {
 };
 
 function getWinner() {
-console.log(baskets[6].value, baskets[13].value);
    if(baskets[6].value > baskets[13].value) {
        win.innerText = 'Player 1 Wins!';
    } else if(baskets[13].value > baskets[6].value) {
