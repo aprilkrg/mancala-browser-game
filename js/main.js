@@ -31,11 +31,9 @@ let baskets = [
 ];
 let players = [
     { name: 'p1',
-    turn: '1', 
-},
+    turn: '1', },
     { name: 'p2',
-    turn: '-1', 
-},
+    turn: '-1', },
 ];
 
 // /*----- app's state (variables) -----*/
@@ -62,6 +60,7 @@ function init() {
     baskets[6].value = 0;
     render();
 };
+
 init();
 
 function render() {
@@ -84,8 +83,13 @@ function handleBasket(evt) {
     if (clickedBasket.name === 'p1Points' || clickedBasket.name === 'p2Points') return;
     if (clickedBasket.value < 1) return;
     spreadStones(clickedBasket, basketIdx);
-    render();
-    baskets[6].value + baskets[13].value === 48 ? getWinner() : turn *= -1; //----------------set final basket number here
+    if(baskets[6].value + baskets[13].value === 48) { /////---------------total value
+        getWinner()
+        return;
+    } else {
+        turn *= -1
+        render();
+    };
 };
 
 function spreadStones(startBasket, basketIdx) {
@@ -105,13 +109,12 @@ function spreadStones(startBasket, basketIdx) {
 };
 
 function getWinner() {
-   if(baskets[6].value > baskets[13].value) {
-       win.innerText = 'Player 1 Wins!';
-   } else if(baskets[13].value > baskets[6].value) {
-       win.innerText = 'Player 2 Wins!';
-   } else if(baskets[6].value === baskets[13].value) {
-       win.innerText = 'You tied! Play again?'
-   };
-   
-msgEl.innerText = '';
+    if(baskets[6].value > baskets[13].value) {
+        win.innerText = 'Player 1 Wins!';
+    } else if(baskets[13].value > baskets[6].value) {
+        win.innerText = 'Player 2 Wins!';
+    } else if(baskets[6].value === baskets[13].value) {
+        win.innerText = 'You tied! Play again?'
+    };
+    msgEl.innerText = '';
 };

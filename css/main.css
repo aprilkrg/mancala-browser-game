@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-  }
+}
 
 body {
     background-image: url('../images/norway.jpg');
@@ -120,6 +120,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .b {
     grid-area: b;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -128,6 +129,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .c {
     grid-area: c;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -136,6 +138,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .d {
     grid-area: d;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -144,6 +147,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .e {
     grid-area: e;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -152,6 +156,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .f {
     grid-area: f;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -160,6 +165,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .g {
     grid-area: g;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -168,6 +174,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .h {
     grid-area: h;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -176,6 +183,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .i {
     grid-area: i;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -184,6 +192,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .j {
     grid-area: j;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -192,6 +201,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .k {
     grid-area: k;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -200,6 +210,7 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
+
 .l {
     grid-area: l;
     border: rgba(26, 21, 15, 1), solid, 1px;
@@ -208,48 +219,3 @@ h2 {
     color: whitesmoke;
     padding-top: 5vh;
 }
-/* 
-@media only screen and (min-width: 320px) and (max-width: 800px) {
-
-body {
-    background-color: darkred;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(8, 1fr);
-    grid-template-areas:
-        "head head"
-        "p2 p2S"
-        "two two"
-        "baskets baskets"
-        "baskets baskets"
-        "one one"
-        "p1S p1"
-        "go go";
-        font-size: 14px;
-}
-#board {
-    background-color: crimson;
-}
-
-
-.one {
-    grid-area: one;
-    grid-column: span 2;
-    border: rgba(26, 21, 15, 1) solid 1px;
-    border-radius: 51%; 
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
-    width:100%;
-
-}
-
-.two {
-    grid-area: two;
-    grid-column: span 2;
-    border: rgba(26, 21, 15, 1) solid 1px;
-    border-radius: 51%;
-    background-image: radial-gradient(rgba(97, 79, 56,.8), rgba(59, 48, 34,1));
-    width: 100%;
-
-}
-
-} */
