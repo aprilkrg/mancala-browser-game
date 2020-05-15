@@ -4,7 +4,9 @@ Mancala is a two player game that you can play with any level of experience or s
 
 ## Screenshot
 
-![Mancala Game Screenshot](/images/initshot.png)
+![Mancala Game Screenshot of starting screen](/images/init.png)
+![Mancala Game Screenshot of game in play](/images/play.png)
+![Mancala Game Screenshot of Player 1 win](/images/win.png)
 
 ## Technologies Used
 
